@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xmlns:tx="http://www.springframework.org/schema/tx"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                     http://www.springframework.org/schema/context
+                     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                     http://www.springframework.org/schema/aop
+                     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                     http://www.springframework.org/schema/tx
+                     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    <!-- 这个方法只会调用到Juggler的默认构造方法，即杂技师只能同时抛出3个球。
+    	 如果连Juggler默认方法都没有提供，那么，调用Bean将出现异常：
+    	 No default constructor found; nested exception is java.lang.NoSuchMethodException: com.spring.inAction.Bean21.Juggler.<init>()
+    -->
+    <bean id="duke0" class="com.spring.inAction.Bean21.Juggler">
+    </bean>
+    <!-- 下面指定一个参数来构造，通过构造器注入 -->
+    <bean id="duke1" class="com.spring.inAction.Bean21.Juggler">
+    	<constructor-arg value="15"></constructor-arg>
+    </bean>
+    <!-- 通过构造器注入对象引用 -->
+    <bean id="nalanci" class="com.spring.inAction.Bean21.Nalanci"></bean>
+    <bean id="poeticDuke" class="com.spring.inAction.Bean21.PoeticJuggler">
+    	<constructor-arg index="0" value="15"></constructor-arg>
+    	<constructor-arg ref="nalanci"></constructor-arg>
+    </bean>
+</beans>

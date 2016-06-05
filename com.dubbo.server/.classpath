@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="config"/>
+	<classpathentry kind="lib" path="lib/freemarker-2.3.16.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-aop"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-beans"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-context"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-context-support"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-expression"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spring-web"/>
+	<classpathentry kind="lib" path="dubbolib/commons-beanutils1.6.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-codec-1.7.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-lang-2.0.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-lang-2.2.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="dubbolib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="dubbolib/component.jar"/>
+	<classpathentry kind="lib" path="dubbolib/dom4j-1.4.jar"/>
+	<classpathentry kind="lib" path="dubbolib/ezmorph-1.0.4.jar"/>
+	<classpathentry kind="lib" path="dubbolib/fastjson-1.1.32.jar"/>
+	<classpathentry kind="lib" path="dubbolib/framework.jar"/>
+	<classpathentry kind="lib" path="dubbolib/httpclient-4.2.2.jar"/>
+	<classpathentry kind="lib" path="dubbolib/httpcore-4.2.2.jar"/>
+	<classpathentry kind="lib" path="dubbolib/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="dubbolib/jsch-0.1.51.jar"/>
+	<classpathentry kind="lib" path="dubbolib/json-lib-2.3-jdk15.jar"/>
+	<classpathentry kind="lib" path="dubbolib/json.jar"/>
+	<classpathentry kind="lib" path="dubbolib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="dubbolib/netty-3.2.5.Final.jar"/>
+	<classpathentry kind="lib" path="dubbolib/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-3.7 .jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-excelant-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-ooxml-3.7.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-ooxml-schemas-3.7.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="dubbolib/poi-scratchpad-3.7.jar"/>
+	<classpathentry kind="lib" path="dubbolib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="dubbolib/slf4j-log4j12-1.6.6.jar"/>
+	<classpathentry kind="lib" path="dubbolib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="dubbolib/xom-1.1.jar"/>
+	<classpathentry kind="lib" path="dubbolib/zkclient-0.3.jar"/>
+	<classpathentry kind="lib" path="dubbolib/zookeeper-3.4.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/dubbo"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
