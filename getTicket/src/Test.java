@@ -117,6 +117,7 @@ public class Test {
 			  connection.setDoOutput(true);
 			  connection.setDoInput(true);
 			  connection.connect();
+			  long st = System.currentTimeMillis();
 		   InputStream beforeDecompress = connection.getInputStream();
 		   try{
 			   GZIPInputStream afterDecompress = new GZIPInputStream(beforeDecompress);
@@ -126,7 +127,7 @@ public class Test {
 			   System.err.println(e3);
 			   in = new BufferedReader(new InputStreamReader(beforeDecompress,type));
 		   }
-		   
+		   System.err.println("=======================耗时" + (System.currentTimeMillis() - st));
 		   // 初始化 BufferedReader输入流来读取URL的响应
 		  
 		   String line;
@@ -247,8 +248,9 @@ public class Test {
 			 if (result.length()==0) throw new Exception();
 		 }
 		 catch(Exception e){
+			 e.printStackTrace();
 			 result="";
-			 JOptionPane.showMessageDialog(null,"找不到该车站！");
+			 //JOptionPane.showMessageDialog(null,"找不到该车站！");
 		 }
 		// System.out.println(result);
 		 //System.out.println(get);
@@ -274,7 +276,7 @@ public class Test {
 			 return RegexString(temp,type+"\":\"([^\"]+)\"").get(0);}
 		 catch(Exception e ){
 			 System.out.println(e.getStackTrace());
-			 JOptionPane.showMessageDialog(null,"找不到该车次信息");
+			 //JOptionPane.showMessageDialog(null,"找不到该车次信息");
 		 }
 			return "";
 		 }
