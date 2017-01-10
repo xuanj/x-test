@@ -42,6 +42,7 @@ public class TicketConsole {
 						}
 						if (flag2 == 1) {
 							content = content + "您的查询结果已给出，谢谢您使用本系统";
+							LOG.info(content);
 							if (Mail.send(info.getSmtp(), info.getFromAddress(), info.getToAddress(), subject, content, info.getFromAddress(), info.getFromPassword())) {
 								LOG.info("邮件已经发送");
 							}
@@ -71,8 +72,8 @@ public class TicketConsole {
 		try {
 			props.load(TicketConsole.class.getClassLoader().getResourceAsStream("ticket.properties"));
 			for (Object key : props.keySet()) {
-				System.out.print(key + ":");
-				System.out.println(props.get(key));
+				LOG.info(key + ":");
+				LOG.info(props.get(key));
 			}
 			info.setSmtp(props.getProperty("smtp"));
 			info.setFromAddress(props.getProperty("fromAddress"));
