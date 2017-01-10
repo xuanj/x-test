@@ -25,7 +25,6 @@ public class TicketConsole {
 				LOG.info(url);
 				while (true) {
 					try {
-
 						String result = Test.SendGet(url, "UTF-8");
 						for (int i = 0; i < 9; i++) {
 							LOG.debug(result);
@@ -56,6 +55,7 @@ public class TicketConsole {
 							break;
 						}
 					} catch (Exception e) {
+						e.printStackTrace();
 					}
 
 				}
