@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="conf"/>
 	<classpathentry kind="lib" path="src/activation.jar"/>
 	<classpathentry kind="lib" path="src/javaee-api-5.0-2-5.0.2.jar"/>
 	<classpathentry kind="lib" path="src/jcalendar-1.4.jar"/>
@@ -11,5 +12,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="src"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
