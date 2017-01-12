@@ -38,6 +38,7 @@ public class TicketConsole {
 							}
 						}
 						if(sb.length()>0){
+							LOG.info("发送邮件内容：\n" + sb.toString());
 							Mail.send(sb.toString());
 						}
 						try {
