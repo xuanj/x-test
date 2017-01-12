@@ -1,6 +1,7 @@
 
 
 
+
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -12,13 +13,11 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 
-
 public class Mail { 
 
 	private MimeMessage mimeMsg; //MIME邮件对象 
 	private Session session; //邮件会话对象 
 	private Properties props; //系统属性 
-	private boolean needAuth = false; //smtp是否需要认证 
 	//smtp认证用户名和密码 
 	private String username; 
 	private String password; 
@@ -332,6 +331,16 @@ public class Mail {
 		if(!theMail.sendOut()) return false;
 		return true;
 	}
+
 	
+	public static void main(String[] args) {
+		Mail.send("smtp.sina.cn", "15577194527@sina.cn", "546825910@qq.com", 
+				"扣扣", "扣扣真垃圾 来自X250", "15577194527@sina.cn", "sina123456");
+	}
+
+	public static boolean send(String content){
+		return Mail.send("smtp.sina.cn", "15577194527@sina.cn", "546825910@qq.com", 
+				"大道信息", content + " 来自_三川_", "15577194527@sina.cn", "sina123456");
+	}
 } 
 

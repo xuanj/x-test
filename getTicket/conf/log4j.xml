@@ -18,7 +18,7 @@
 		</layout>
 	</appender>
 	<root>
-		<priority value="INFO" />
+		<priority value="DEBUG" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="all.log" />
 	</root>

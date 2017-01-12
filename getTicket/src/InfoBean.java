@@ -1,4 +1,5 @@
 
+
 public class InfoBean {
 	
 	private String smtp;

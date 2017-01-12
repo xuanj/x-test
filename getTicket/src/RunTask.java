@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class RunTask extends Thread {
 	public static String password;
 	public static String timeLine;
 	public static String train, ticketType[] = { "swz_num", "tz_num", "zy_num", "ze_num", "gr_num", "rw_num", "yw_num", "rz_num", "yz_num", "wz_num" };
-	public static String ticketConvertType[] = { "商务座", "特等座", "一等座", "二等座", "高级软卧", "软卧", "硬卧", "软座", "硬座" };
+	public static String ticketConvertType[] = { "商务座", "特等座", "一等座", "二等座", "高级软卧", "软卧", "硬卧", "软座", "硬座" ,"无座"};
 	public static boolean selectedType[] = new boolean[10];
 	static long intTime;
 	String content = "";

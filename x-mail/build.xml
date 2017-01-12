@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project x-mail">
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
-    <!--define folder properties-->
-    <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="D:/Users/XUANJIAN671/Documents/workspace-sts-3.8.2.RELEASE"/>
-    <property name="dir.jarfile" value="${dir.buildfile}"/>
-    <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/x-mail.jar" filesetmanifest="mergewithoutmain">
-            <manifest>
-                <attribute name="Main-Class" value="JavaMailTest1"/>
-                <attribute name="Class-Path" value="."/>
-            </manifest>
-            <fileset dir="${dir.jarfile}/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/lib/javax.mail.jar"/>
-        </jar>
-    </target>
+<project default="x-mail_jar" name="x-mail">
+	<property name="dir.buildfile" value="." />
+	<property name="dir.jarfile" value="${dir.buildfile}" />
+	<target name="targetA" if="ant.java.version">
+		<echo message="Java Version: ${ant.java.version}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin/" />
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="com.mail.AntTest">
+			<classpath>
+				<pathelement path="bin/" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="x-mail_jar" depends="targetA">
+		<jar destfile="${dir.jarfile}/x-mail.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="JavaMailTest1" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="${dir.jarfile}/bin" />
+			<zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/lib/javax.mail.jar" />
+		</jar>
+	</target>
 </project>
