@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="TicketConsole" name="x-mail">
+<project default="runJar" name="x-console">
 	<property name="dir.buildfile" value="." />
 	<property name="dir.jarfile" value="${dir.buildfile}" />
 	<target name="targetA" if="ant.java.version">
@@ -64,6 +64,11 @@
 			</manifest>
 		</jar>
 	</target>
+	
+	<target name="runJar" depends="jar">  
+	        <java jar="${jarfilename}" fork="true">  
+	        </java>  
+	    </target> 
 
 	<target name="x-mail_jar" depends="targetA">
 		<jar destfile="${dir.jarfile}/x-mail.jar" filesetmanifest="mergewithoutmain">
