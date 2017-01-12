@@ -1,19 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project x-mail">
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
-    <!--define folder properties-->
-    <property name="dir.buildfile" value="."/>
-    <property name="dir.workspace" value="D:/Users/XUANJIAN671/Documents/workspace-sts-3.8.2.RELEASE"/>
-    <property name="dir.jarfile" value="${dir.buildfile}"/>
-    <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/TicketConsole.jar" filesetmanifest="mergewithoutmain">
-            <manifest>
-                <attribute name="Main-Class" value="ticket.TicketConsole"/>
-                <attribute name="Class-Path" value="."/>
-            </manifest>
-            <fileset dir="D:/Users/XUANJIAN671/git/x-test/x-mail/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="D:/Users/XUANJIAN671/git/x-test/x-mail/lib/javax.mail.jar"/>
-        </jar>
-    </target>
+<project default="TicketConsole" name="x-mail">
+	<property name="dir.buildfile" value="." />
+	<property name="dir.jarfile" value="${dir.buildfile}" />
+	<target name="targetA" if="ant.java.version">
+		<echo message="Java Version: ${ant.java.version}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin/" />
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="TicketConsole">
+			<classpath>
+				<pathelement path="bin/" />
+			</classpath>
+		</java>
+	</target>
+
+	<property name="src" value="src" />
+	<property name="classes" value="bin/" />
+	<pathconvert property="lib" pathsep=" ">
+		<mapper>
+			<chainedmapper>
+				<flattenmapper />
+				<globmapper from="*" to="lib/*" />
+			</chainedmapper>
+		</mapper>
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+	</pathconvert>
+	  <property name="libs" value="${lib} ." /> 
+
+	<echo>libs   ${libs}</echo>
+
+	<target name="init">
+		<mkdir dir="${classes}" />
+	</target>
+
+	<target name="compileAntTest" description="comile target">
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="true">
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- 创建时间戳 -->
+	<tstamp />
+
+	<property name="jarfilename" value="${ant.project.name}-${DSTAMP}${TSTAMP}.jar" />
+
+	<target name="jar" depends="compileAntTest" description="make jar file">
+		<jar jarfile="${jarfilename}" basedir="${classes}">
+			<manifest>
+				<attribute name="Main-Class" value="TicketConsole" />
+				<attribute name="Class-Path" value="${libs}">
+				</attribute>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="x-mail_jar" depends="targetA">
+		<jar destfile="${dir.jarfile}/x-mail.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="JavaMailTest1" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="${dir.jarfile}/bin" />
+			<zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/lib/javax.mail.jar" />
+		</jar>
+	</target>
 </project>
