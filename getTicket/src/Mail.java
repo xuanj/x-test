@@ -334,8 +334,7 @@ public class Mail {
 
 	
 	public static void main(String[] args) {
-		Mail.send("smtp.sina.cn", "15577194527@sina.cn", "546825910@qq.com", 
-				"扣扣", "扣扣真垃圾 来自X250", "15577194527@sina.cn", "sina123456");
+		Mail.send("票票");
 	}
 
 	public static boolean send(String content){

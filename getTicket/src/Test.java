@@ -101,7 +101,6 @@ public class Test {
 	public static String SendGet(String url, String type) throws IOException {
 		trustAllHosts();
 		// 定义一个字符串用来存储网页内容
-		String result = "";
 		// 定义一个缓冲字符输入流
 		BufferedReader in = null;
 		// 将string转成url对象
@@ -131,12 +130,10 @@ public class Test {
 		}
 		System.err.println("=======================耗时" + (System.currentTimeMillis() - st));
 		// 初始化 BufferedReader输入流来读取URL的响应
-
-		String line;
-		while ((line = in.readLine()) != null) {
-			// 遍历抓取到的每一行并将其存储到result里面
-			result += line + "\n";
-		}
+		StringBuffer sb = new StringBuffer();
+		sb.append("{\"");
+		// 遍历抓取到的每一行并将其存储到result里面
+		sb.append(in.readLine());
 		// 使用finally来关闭输入流
 
 		try {
@@ -147,7 +144,7 @@ public class Test {
 			e2.printStackTrace();
 		}
 
-		return result;
+		return sb.toString();
 	}
 
 	static ArrayList<String> RegexString(String targetStr, String patternStr) {
