@@ -19,6 +19,51 @@
 		</java>
 	</target>
 
+	<property name="src" value="src" />
+	<property name="classes" value="bin/classes" />
+	<pathconvert property="lib" pathsep=" ">
+		<mapper>
+			<chainedmapper>
+				<flattenmapper />
+				<globmapper from="*" to="lib/*" />
+			</chainedmapper>
+		</mapper>
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+	</pathconvert>
+
+	<echo>libs   ${lib}</echo>
+
+	<target name="init">
+		<mkdir dir="${classes}" />
+	</target>
+
+	<target name="compileAntTest" description="comile target">
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="true">
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- 创建时间戳 -->
+	<tstamp />
+
+	<property name="jarfilename" value="${ant.project.name}-${DSTAMP}${TSTAMP}.jar" />
+
+	<target name="jar" depends="compileAntTest" description="make jar file">
+		<jar jarfile="${jarfilename}" basedir="${classes}">
+			<manifest>
+				<attribute name="Main-Class" value="com.mail.AntTest" />
+				<attribute name="Class-Path" value="${lib}">
+				</attribute>
+			</manifest>
+		</jar>
+	</target>
+
 	<target name="x-mail_jar" depends="targetA">
 		<jar destfile="${dir.jarfile}/x-mail.jar" filesetmanifest="mergewithoutmain">
 			<manifest>
