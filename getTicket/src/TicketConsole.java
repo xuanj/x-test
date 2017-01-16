@@ -1,3 +1,4 @@
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import org.apache.log4j.LogManager;
@@ -93,7 +94,7 @@ public class TicketConsole {
 		LOG.info("读取属性文件");
 		Properties props = new Properties();
 		try {
-			props.load(TicketConsole.class.getClassLoader().getResourceAsStream("ticket.properties"));
+			props.load(new InputStreamReader(TicketConsole.class.getClassLoader().getResourceAsStream("ticket.properties"), "UTF-8"));
 			for (Object key : props.keySet()) {
 				LOG.info(key + ":");
 				LOG.info(props.get(key));
