@@ -93,7 +93,7 @@ public class TicketConsole {
 		LOG.info("读取属性文件");
 		Properties props = new Properties();
 		try {
-			props.load(TicketConsole.class.getClassLoader().getResourceAsStream("ticket.properties"));
+			props.load(TicketConsole.class.getClassLoader().getResourceAsStream("ticket.properties.."));
 			for (Object key : props.keySet()) {
 				LOG.info(key + ":");
 				LOG.info(props.get(key));
