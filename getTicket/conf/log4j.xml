@@ -5,7 +5,7 @@
 	xmlns:log4j="http://jakarta.apache.org/log4j/">
 	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n" />
+			<param name="ConversionPattern" value="%d %t %-5p %c.%M:%L - %m%n" />
 		</layout>
 	</appender>
 	<appender name="all.log" class="org.apache.log4j.RollingFileAppender">
@@ -14,7 +14,7 @@
 		<param name="MaxBackupIndex" value="10" />
 		<param name="Encoding" value="UTF-8"></param><!-- 设置日志编码 -->
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{HH:mm:ss.SSS} %-5p %c.%M:%L - %m%n" /><!--设置输出文件项目和格式 -->
+			<param name="ConversionPattern" value="%d %t %-5p %c.%M:%L - %m%n" /><!--设置输出文件项目和格式 -->
 		</layout>
 	</appender>
 	<root>

@@ -39,8 +39,16 @@ public class TicketConsole {
 								JSONObject train = j.getJSONObject("queryLeftNewDTO");
 								TrainInfo info = parseJson(train);
 								if(checkTrain(info, task)){
-									sb.append("车次："+ info.getStationTrainCode() + "，开车时间：" + info.getStartTime() + "<br>");
-									sb.append(JSON.toJSONString(info));
+									sb.append("车次：");
+									sb.append(info.getStationTrainCode());
+									sb.append("。始点：");
+									sb.append(info.getStartStationName());
+									sb.append("，终点：");
+									sb.append(info.getToStationName());
+									sb.append("，开车时间：");
+									sb.append(info.getStartTime());
+									sb.append("<br>");
+									sb.append(getTicketInfoString(info));
 								}
 							}
 							if(sb.length()>0){
@@ -48,8 +56,8 @@ public class TicketConsole {
 								Mail.send(taskInfo.getSendMail().getSmtp(),
 										taskInfo.getSendMail().getAddress(),
 										task.getToMail(),
-										"大道信息",
-										sb.toString() +  "<br> 来自_三川_",
+										"大道信息->" + task.getTaskName(),
+										sb.toString() +  "来自_三川_",
 										taskInfo.getSendMail().getAddress(),
 										taskInfo.getSendMail().getPassword()
 										);
@@ -71,6 +79,23 @@ public class TicketConsole {
 			});
 			t.start();
 		}
+	}
+	
+	private static String getTicketInfoString(TrainInfo info){
+		StringBuilder sb = new StringBuilder();
+		sb.append("====================================<br>");
+		sb.append("商务座&emsp;->&emsp;" + info.getSwzNum() +"<br>");
+		sb.append("特等座&emsp;->&emsp;"+ info.getTzNum() +"<br>");
+		sb.append("一等座&emsp;->&emsp;" + info.getZyNum() +"<br>");
+		sb.append("二等座&emsp;->&emsp;" + info.getZeNum() +"<br>");
+		sb.append("高级软卧&emsp;->&emsp;" + info.getGrNum() +"<br>");
+		sb.append("软卧&emsp;->&emsp;" + info.getRwNum() +"<br>");
+		sb.append("硬卧&emsp;->&emsp;" + info.getYwNum() +"<br>");
+		sb.append("软座&emsp;->&emsp;" + info.getRzNum() +"<br>");
+		sb.append("硬座&emsp;->&emsp;" + info.getYzNum() +"<br>");
+		sb.append("无座&emsp;->&emsp;" + info.getWzNum() +"<br>");
+		sb.append("====================================<br>");
+		return sb.toString();
 	}
 	
 	public static boolean checkTrain(TrainInfo info,Task task){
