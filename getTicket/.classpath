@@ -13,8 +13,7 @@
 	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/jackson-core-2.8.6.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang-2.6-2.6.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fastjson"/>
+	<classpathentry kind="lib" path="lib/fastjson-1.2.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
