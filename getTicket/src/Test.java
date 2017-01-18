@@ -146,6 +146,57 @@ public class Test {
 
 		return sb.toString();
 	}
+	 public static String SendInitGet(String url,String type) throws IOException {
+		 trustAllHosts();
+		  // 定义一个字符串用来存储网页内容
+		  String result = "";
+		  // 定义一个缓冲字符输入流
+		  BufferedReader in = null;
+		   // 将string转成url对象
+		   URL realUrl = new URL(url);
+		   // 初始化一个链接到那个url的连接
+		  // URLConnection connection =realUrl.openConnection();
+		   HttpURLConnection connection =(HttpURLConnection) realUrl.openConnection();
+		   // 开始实际的连接
+		  // connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+		   connection
+		     .setRequestProperty(
+		       "User-Agent",
+		       "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36");
+			  // Post
+			  connection.setDoOutput(true);
+			  connection.setDoInput(true);
+			  connection.connect();
+			  long st = System.currentTimeMillis();
+		   InputStream beforeDecompress = connection.getInputStream();
+		   try{
+			   GZIPInputStream afterDecompress = new GZIPInputStream(beforeDecompress);
+			   in = new BufferedReader(new InputStreamReader(afterDecompress,type)); //尝试用gzip解压，失败则直接解压
+					   // 用来临时存储抓取到的每一行的数据
+		   }catch(Exception e3){
+			   System.err.println(e3);
+			   in = new BufferedReader(new InputStreamReader(beforeDecompress,type));
+		   }
+		   System.err.println("=======================耗时" + (System.currentTimeMillis() - st));
+		   // 初始化 BufferedReader输入流来读取URL的响应
+		  
+		   String line;
+		   while ((line = in.readLine()) != null) {
+		    // 遍历抓取到的每一行并将其存储到result里面
+		    result += line+"\n";
+		   }
+		  // 使用finally来关闭输入流
+		  
+		   try {
+		    if (in != null) {
+		     in.close();
+		    }
+		   } catch (Exception e2) {
+		    e2.printStackTrace();
+		   }
+
+		  return result;
+		 }
 
 	static ArrayList<String> RegexString(String targetStr, String patternStr) {
 		// 预定义一个ArrayList来存储结果
@@ -174,7 +225,7 @@ public class Test {
 		String url = "https://kyfw.12306.cn/otn/lcxxcx/init";
 		String result;
 		try {
-			result = SendGet(url, "utf-8");
+			result = SendInitGet(url, "utf-8");
 			ArrayList<String> url2 = RegexString(result, "station_version=([^\"]*)\"");
 			// System.out.println(url2);
 			// result=RegexString(result,"|([^\"]*)\"}").toString();
@@ -258,7 +309,7 @@ public class Test {
 	}
 
 	public static String finishSearchUrl(String fromstation, String tostation, String date, String type) {
-		String url = "https://kyfw.12306.cn/otn/leftTicket/queryA?leftTicketDTO.train_date=" + date
+		String url = "https://kyfw.12306.cn/otn/leftTicket/queryZ?leftTicketDTO.train_date=" + date
 				+ "&leftTicketDTO.from_station=";
 		String aString = getStationName(fromstation);
 		if (aString.length() == 0)

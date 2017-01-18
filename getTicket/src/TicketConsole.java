@@ -39,7 +39,7 @@ public class TicketConsole {
 								JSONObject train = j.getJSONObject("queryLeftNewDTO");
 								TrainInfo info = parseJson(train);
 								if(checkTrain(info, task)){
-									sb.append("车次："+ info.getStationTrainCode() + "，开车时间：" + info.getStartTime() + "</ br>");
+									sb.append("车次："+ info.getStationTrainCode() + "，开车时间：" + info.getStartTime() + "<br>");
 									sb.append(JSON.toJSONString(info));
 								}
 							}
@@ -49,7 +49,7 @@ public class TicketConsole {
 										taskInfo.getSendMail().getAddress(),
 										task.getToMail(),
 										"大道信息",
-										sb.toString() +  "</ br> 来自_三川_",
+										sb.toString() +  "<br> 来自_三川_",
 										taskInfo.getSendMail().getAddress(),
 										taskInfo.getSendMail().getPassword()
 										);
@@ -77,7 +77,7 @@ public class TicketConsole {
 		Filter filter = task.getFilter();
 		boolean flag = false;
 		if(filter != null){
-			LOG.debug("过滤车次：" + JSON.toJSONString(info));
+			LOG.debug("过滤车次：" + info.getStationTrainCode() + "\n"+ JSON.toJSONString(info));
 			LOG.debug("过滤条件:" + JSON.toJSONString(filter));
 			flag = true;
 		} 
@@ -105,6 +105,8 @@ public class TicketConsole {
 		
 		if(flag && checkStartTime(filter.getStartTimeBegin(), filter.getStartTimeEnd(), info.getStartTime())){
 			LOG.debug("设置时间段内有车有座");
+		} else {
+			flag = false;
 		}
 		return flag;
 	}
@@ -123,9 +125,11 @@ public class TicketConsole {
 			LOG.debug("没有过滤车类型");
 			return true;
 		}
-		if(info.getStationTrainCode().indexOf(trainType) > 0){
+		if(info.getStationTrainCode().indexOf(trainType) > -1){
 			LOG.debug("是要过滤车类型:" + info.getStationTrainCode());
 			return true;
+		} else {
+			LOG.debug("不是要过滤车类型:" + info.getStationTrainCode());
 		}
 		return false;
 	}
@@ -186,6 +190,7 @@ public class TicketConsole {
 		if(t > st && t < et){
 			return true;
 		} else {
+			LOG.debug(time + "不在设置时间段");
 			return false;
 		}
 	}
