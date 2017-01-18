@@ -11,6 +11,10 @@ import java.io.UnsupportedEncodingException;
 
 public class TicketMonitor extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	RunTask runtask = null;
 	JPanel SearchMode = new JPanel(), MonitorMode = new JPanel(), SearchUp = new JPanel(),
 			SearchDown = new JPanel(new BorderLayout()), InputField = new JPanel(), CheckField = new JPanel(),
@@ -355,6 +359,7 @@ public class TicketMonitor extends JFrame {
 		});
 	}
 
+	@SuppressWarnings("deprecation")
 	public void refresh() {
 		fromSta = tf1.getText();
 		toSta = tf2.getText();

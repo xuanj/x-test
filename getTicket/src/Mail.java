@@ -341,5 +341,10 @@ public class Mail {
 		return Mail.send("smtp.sina.cn", "15577194527@sina.cn", "546825910@qq.com", 
 				"大道信息", content + " 来自_三川_", "15577194527@sina.cn", "sina123456");
 	}
+	
+	public static boolean send(String content,String toMail){
+		return Mail.send("smtp.sina.cn", "15577194527@sina.cn", toMail, 
+				"大道信息", content + " 来自_三川_", "15577194527@sina.cn", "sina123456");
+	}
 } 
 
