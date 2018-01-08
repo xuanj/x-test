@@ -3,13 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="lib" path="lib/freemarker-2.3.16.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-aop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-beans"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-context"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-context-support"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-expression"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spring-web"/>
 	<classpathentry kind="lib" path="dubbolib/commons-beanutils1.6.jar"/>
 	<classpathentry kind="lib" path="dubbolib/commons-codec-1.7.jar"/>
 	<classpathentry kind="lib" path="dubbolib/commons-collections-3.1.jar"/>
@@ -47,7 +40,14 @@
 	<classpathentry kind="lib" path="dubbolib/xom-1.1.jar"/>
 	<classpathentry kind="lib" path="dubbolib/zkclient-0.3.jar"/>
 	<classpathentry kind="lib" path="dubbolib/zookeeper-3.4.6.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/dubbo"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="dubbolib/dubbo-2.8.4.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-aop-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-beans-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-context-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-context-support-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-core-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-expression-3.2.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dubbolib/spring-web-3.2.5.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

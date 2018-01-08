@@ -21,6 +21,8 @@ public class TicketConsole {
 		getProperties();
 		List<Task> TaskList = taskInfo.getTask();
 		for (Task task : TaskList) {
+			if("0".equals(task.getStatus()))
+				continue;
 			Thread t = new Thread(new Runnable() {
 				@Override
 				public void run() {
@@ -39,14 +41,13 @@ public class TicketConsole {
 								JSONObject train = j.getJSONObject("queryLeftNewDTO");
 								TrainInfo info = parseJson(train);
 								if(checkTrain(info, task)){
-									sb.append("车次：");
-									sb.append(info.getStationTrainCode());
-									sb.append("。始点：");
-									sb.append(info.getStartStationName());
-									sb.append("，终点：");
+									sb.append(task.getDate()+  "  " + info.getStationTrainCode());
+									sb.append("<br>");
+									sb.append(info.getStartTime() + " -> " + info.getArriveTime());
+									sb.append("<br>");
+									sb.append(info.getFromStationName());
+									sb.append(" -> ");
 									sb.append(info.getToStationName());
-									sb.append("，开车时间：");
-									sb.append(info.getStartTime());
 									sb.append("<br>");
 									sb.append(getTicketInfoString(info));
 								}

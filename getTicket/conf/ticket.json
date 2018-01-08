@@ -6,9 +6,10 @@
 	},
 	"task": [
 		{
-			"taskName": "去上班",
+			"status": "1",
+			"taskName": "上班-高铁",
 			"toMail": "546825910@qq.com",
-			"fromSta": "南宁",
+			"fromSta": "贵港",
 			"toSta": "深圳",
 			"date": "2017-02-05",
 			"filter": {
@@ -16,11 +17,26 @@
 				"trainType": "G",
 				"seatType": "二等",
 				"ticketCount": "2",
-				"startTimeBegin": "12:00",
+				"startTimeBegin": "2:00",
+				"startTimeEnd": "20:00"
+			}
+		},{
+			"status": "0",
+			"taskName": "回家接娃",
+			"toMail": "546825910@qq.com",
+			"fromSta": "深圳",
+			"toSta": "贵港",
+			"date": "2017-02-05",
+			"filter": {
+				"trainCode": [],
+				"trainType": "G",
+				"seatType": "二等",
+				"ticketCount": "1",
+				"startTimeBegin": "2:00",
 				"startTimeEnd": "18:00"
 			}
-		},
-		{
+		},{
+			"status": "0",
 			"taskName": "回家",
 			"toMail": "546825910@qq.com",
 			"fromSta": "深圳",
@@ -35,7 +51,8 @@
 				"startTimeEnd": "18:00"
 			}
 		},{
-			"taskName": "卧铺",
+			"status": "1",
+			"taskName": "上班-卧铺",
 			"toMail": "546825910@qq.com",
 			"fromSta": "玉林",
 			"toSta": "深圳",

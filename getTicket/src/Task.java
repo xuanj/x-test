@@ -1,5 +1,7 @@
 
 public class Task {
+	
+	private String status;//1 正常 0 停止
 
 	private String taskName;
 	
@@ -95,5 +97,13 @@ public class Task {
 	 */
 	public void setFilter(Filter filter) {
 		this.filter = filter;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }
